@@ -123,7 +123,7 @@ def dunn(k, clusters):
 	distance = 200
 	for i in range(k):
 		for j in range(i+1,k):
-			new_dist=getDistance(clusters[i].centroid,clusters[j].centroid)
+			new_dist=get_Cluster_distance(clusters[i],clusters[j])
 			distance=min(distance, new_dist)
 
 	for i in range(k):
@@ -135,6 +135,20 @@ def dunn(k, clusters):
 
 	dunn_index = distance/dist2		
 	print str(dunn_index)
+
+
+def get_cluster_Distance(a, b):
+
+	dist = 0.0
+	for i in a.points:
+
+		for j in b.points:
+
+			dist = min(dist, getDistance(i, j))
+
+
+	return dist
+
 def davies(k, clusters):
 	db = 0.0
 	for i in range(k):
