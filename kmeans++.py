@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 
 def main():
 	
-	num_points = 10000
+	num_points = 1000
 	dimensions = 2
 	lower = 0
 	upper = 200
@@ -124,7 +124,7 @@ def dunn(k, clusters):
 	distance = 200
 	for i in range(k):
 		for j in range(i+1,k):
-			new_dist=get_Cluster_distance(clusters[i],clusters[j])
+			new_dist=getClusterDistance(clusters[i],clusters[j])
 			distance=min(distance, new_dist)
 
 	for i in range(k):
@@ -138,7 +138,7 @@ def dunn(k, clusters):
 	print str(dunn_index)
 
 
-def get_cluster_Distance(a, b):
+def getClusterDistance(a, b):
 
 	dist = 0.0
 	for i in a.points:
